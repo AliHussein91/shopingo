@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 
 // Import our new router
 import authRoutes from './app/routes/auth.routes';
+import productRoutes from './app/routes/product.routes';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
@@ -17,6 +18,7 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Use the authentication routes
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to the backend API!' });
