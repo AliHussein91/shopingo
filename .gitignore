@@ -45,3 +45,5 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 .angular
+apps/backend/.env
+ssh-key-2025-07-16.ke
