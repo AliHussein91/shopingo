@@ -3,34 +3,39 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-// Load environment variables from .env file
+// Import our new router
+import authRoutes from './app/routes/auth.routes';
+
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const app = express();
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// Use the authentication routes
+app.use('/api/auth', authRoutes);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to the backend API!' });
 });
 
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 3333;
 
 const startServer = async () => {
   try {
-    // Connect to MongoDB
     await mongoose.connect(process.env.MONGO_URI);
     console.log('✅ Successfully connected to MongoDB');
 
-    // Start the Express server
     const server = app.listen(port, () => {
       console.log(`🚀 Listening at http://localhost:${port}/api`);
     });
     server.on('error', console.error);
-
   } catch (error) {
     console.error('❌ Error connecting to MongoDB:', error);
-    process.exit(1); // Exit process with failure
+    process.exit(1);
   }
 };
 
