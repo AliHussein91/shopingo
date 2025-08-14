@@ -6,12 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { AsyncPipe, CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProgressSpinnerModule, DataViewModule, ButtonModule, RatingModule, CommonModule, AsyncPipe],
+  imports: [ProgressSpinnerModule, DataViewModule, ButtonModule, RatingModule, CommonModule, AsyncPipe, RouterLink],
   templateUrl: './product-list.html',
-  styleUrl: './product-list.css'
+  styleUrl: './product-list.scss'
 })
 export class ProductListComponent {
   private apiService = inject(ApiService);

@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
   selector: 'app-layout',
   imports: [CommonModule, RouterModule, ToolbarModule, ButtonModule],
   templateUrl: './layout.html',
-  styleUrl: './layout.css'
+  styleUrl: './layout.scss'
 })
 export class LayoutComponent {
 
