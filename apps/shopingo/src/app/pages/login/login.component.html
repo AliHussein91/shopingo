@@ -1,0 +1,35 @@
+<div class="flex justify-content-center align-items-center mt-8">
+  <p-card header="Login" [style]="{ width: '360px' }">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          formControlName="email"
+          class="w-full"
+        />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          pInputText
+          formControlName="password"
+          class="w-full"
+        />
+      </div>
+      <p-button
+        label="Login"
+        type="submit"
+        styleClass="w-full"
+        [disabled]="loginForm.invalid"
+      ></p-button>
+    </form>
+  </p-card>
+</div>
+<p-toast></p-toast> 
+<div class="flex justify-content-center align-items-center mt-8">
+  </div>

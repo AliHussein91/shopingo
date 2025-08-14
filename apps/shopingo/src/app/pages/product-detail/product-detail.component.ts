@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../core/api';
+import { ApiService } from '../../core/api.service';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -14,8 +14,8 @@ import { TagModule } from 'primeng/tag';
   selector: 'app-product-detail',
   standalone: true,
   imports: [ButtonModule, CardModule, GalleriaModule, TagModule],
-  templateUrl: './product-detail.html',
-  styleUrl: './product-detail.scss',
+  templateUrl: './product-detail.component.html',
+  styleUrl: './product-detail.component.scss',
 })
 export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
