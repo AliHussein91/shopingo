@@ -2,6 +2,7 @@ import express from 'express';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 // Import our new router
 import authRoutes from './app/routes/auth.routes';
@@ -11,6 +12,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const app = express();
 
+app.use(cors());
 // Middleware to parse JSON bodies
 app.use(express.json());
 

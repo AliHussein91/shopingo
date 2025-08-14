@@ -1,0 +1,31 @@
+<header>
+  <p-toolbar>
+    <div class="p-toolbar-group-start">
+      <a routerLink="/" class="font-bold text-3xl no-underline text-primary"
+        >Shopingo</a
+      >
+    </div>
+
+    <div class="p-toolbar-group-center">
+      <p-button
+        label="Products"
+        routerLink="/products"
+        styleClass="p-button-text"
+      ></p-button>
+    </div>
+
+    <div class="p-toolbar-group-end">
+      <p-button icon="pi pi-search" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-heart" styleClass="p-button-text"></p-button>
+      <p-button
+        icon="pi pi-shopping-cart"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button label="Login" styleClass="p-button-text"></p-button>
+    </div>
+  </p-toolbar>
+</header>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
