@@ -15,17 +15,40 @@
     </div>
 
     <div class="p-toolbar-group-end">
-      <p-button icon="pi pi-search" styleClass="p-button-text"></p-button>
-      <p-button icon="pi pi-heart" styleClass="p-button-text"></p-button>
+      @if (authService.isLoggedIn()) {
+      <span class="mr-2">Welcome, {{ authService.currentUser()?.name }}</span>
+      <p-button icon="pi pi-user" styleClass="p-button-text"></p-button>
       <p-button
         icon="pi pi-shopping-cart"
         styleClass="p-button-text"
       ></p-button>
-      <p-button label="Login" styleClass="p-button-text"></p-button>
+      <p-button
+        label="Logout"
+        (click)="logout()"
+        styleClass="p-button-text"
+      ></p-button>
+      } @else {
+      <p-button
+        label="Login"
+        routerLink="/login"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button
+        label="Register"
+        routerLink="/register"
+        styleClass="p-button-text"
+      ></p-button>
+      }
     </div>
   </p-toolbar>
+  <p-button
+    icon="pi pi-shopping-cart"
+    styleClass="p-button-text p-button-icon-only"
+    pBadge
+    [value]="cartService.cartCount()"
+    [hidden]="cartService.cartCount() === 0"
+  >
+  </p-button>
 </header>
 
-<main class="content">
-  <router-outlet></router-outlet>
-</main>
+<main class="content"><p-toast></p-toast> <router-outlet></router-outlet></main>

@@ -9,6 +9,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { GalleriaModule } from 'primeng/galleria';
 import { TagModule } from 'primeng/tag';
+import { CartService } from '../../core/cart.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,6 +22,8 @@ import { TagModule } from 'primeng/tag';
 export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private apiService = inject(ApiService);
+  private cartService = inject(CartService)
+  private messageService = inject(MessageService);
   product$!: Observable<any>;
 
   ngOnInit(): void {
@@ -29,5 +33,14 @@ export class ProductDetailComponent implements OnInit {
         return this.apiService.getProductById(id);
       })
     );
+  }
+
+  addToCart(product: any) {
+    this.cartService.addItem(product);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: `${product.name_en} added to cart`,
+    });
   }
 }

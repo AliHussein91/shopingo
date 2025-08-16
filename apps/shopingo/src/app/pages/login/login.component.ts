@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
+
 
 // PrimeNG Modules
 import { ButtonModule } from 'primeng/button';
@@ -12,7 +12,7 @@ import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, ButtonModule, CardModule, InputTextModule, ToastModule],
+  imports: [ReactiveFormsModule, ButtonModule, CardModule, InputTextModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

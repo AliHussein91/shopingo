@@ -5,6 +5,8 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { authGuard } from './core/http/guards/auth.guard';
 
 export const appRoutes: Route[] = [
     {
@@ -16,6 +18,11 @@ export const appRoutes: Route[] = [
             { path: 'products/:id', component: ProductDetailComponent },
             { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
+            {
+                path: 'profile',
+                component: ProfileComponent,
+                canActivate: [authGuard]
+            },
         ],
     },
 ];
